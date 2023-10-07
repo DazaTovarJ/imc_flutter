@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:imc/mass.dart';
+import 'package:imc/sueldo.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,8 +21,8 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => const HomePage(),
-        '/mass': (context) => const IMC()
-        // '/wage':(context) => WagePage()
+        '/mass': (context) => const IMC(),
+        '/wage':(context) => const Sueldo()
       },
     );
   }
@@ -47,7 +48,7 @@ class HomePage extends StatelessWidget {
                   child: const Text("IMC")),
               ElevatedButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, "wage");
+                    Navigator.pushNamed(context, "/wage");
                   },
                   child: const Text("Calcular Sueldo"))
             ],
