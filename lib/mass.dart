@@ -73,6 +73,13 @@ class _IMCState extends State<IMC> {
     );
   }
 
+  @override
+  void dispose() {
+    weightCtrl.dispose();
+    heightCtrl.dispose();
+    super.dispose();
+  }
+
   Widget buildFields(
       TextEditingController ctrl, String label, TextInputType type) {
     return TextField(
