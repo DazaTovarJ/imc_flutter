@@ -23,44 +23,39 @@ class _IMCState extends State<IMC> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("IMC APP")),
+      appBar: AppBar(title: const Text("IMC APP")),
       body: Container(
-        height: 500,
         width: MediaQuery.of(context).size.width,
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            SizedBox(height: 10),
-            Text(
+            const Text(
               "Consulta tu Índice de Masa Corporal",
               style: TextStyle(
                   fontSize: 24, color: Colors.red, fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
             ),
-            SizedBox(
-              height: 10,
-            ),
-            Text(
+            const Text(
               "Para tener una Vida Saludable",
               style: TextStyle(
                   fontSize: 18, color: Colors.red, fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
             ),
-            Image.asset("assets/img/estado_imc.jpg", height: 200),
+            Image.asset("assets/img/estado_imc.jpg", height: 150),
             buildFields(weightCtrl, "Por favor, Digite su Peso (KG)",
                 TextInputType.number),
-            SizedBox(height: 20),
             buildFields(heightCtrl, "Por favor, Digite su altura (Mts)",
                 TextInputType.number),
-            SizedBox(height: 20),
+            const SizedBox(height: 8),
             ElevatedButton(
                 onPressed: () {
                   calculate();
                 },
                 child: const Text("Calcular"),
             ),
-            Text("SU INDICE DE MASA CORPORAL ES: $massCalculated"),
+            massCalculated != 0 ? Text("SU INDICE DE MASA CORPORAL ES: $massCalculated") : Container(),
           ],
         ),
       ),
