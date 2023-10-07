@@ -23,7 +23,11 @@ class _IMCState extends State<IMC> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("IMC APP")),
+      appBar: AppBar(
+        title: const Text("IMC APP"),
+        backgroundColor: Theme.of(context).colorScheme.primary,
+        foregroundColor: Theme.of(context).colorScheme.onPrimary,
+      ),
       body: Container(
         width: MediaQuery.of(context).size.width,
         padding: const EdgeInsets.all(16.0),
@@ -31,16 +35,20 @@ class _IMCState extends State<IMC> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const Text(
+            Text(
               "Consulta tu Índice de Masa Corporal",
-              style: TextStyle(
-                  fontSize: 24, color: Colors.red, fontWeight: FontWeight.bold),
+              style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                color: Colors.red,
+                fontWeight: FontWeight.bold
+              ),
               textAlign: TextAlign.center,
             ),
-            const Text(
+            Text(
               "Para tener una Vida Saludable",
-              style: TextStyle(
-                  fontSize: 18, color: Colors.red, fontWeight: FontWeight.bold),
+              style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                color: Colors.red,
+                fontWeight: FontWeight.bold
+             ),
               textAlign: TextAlign.center,
             ),
             Image.asset("assets/img/estado_imc.jpg", height: 150),
@@ -55,7 +63,10 @@ class _IMCState extends State<IMC> {
                 },
                 child: const Text("Calcular"),
             ),
-            massCalculated != 0 ? Text("SU INDICE DE MASA CORPORAL ES: $massCalculated") : Container(),
+            massCalculated != 0
+                ? Text("Su índice de masa corporal es: "
+                    "${massCalculated.toStringAsFixed(1)}")
+                : Container(),
           ],
         ),
       ),
